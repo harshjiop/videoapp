@@ -11,7 +11,6 @@ import {
   ForgetPassword,
   ForgetPasswordUpdate,
   isEmailVerified,
-  SendEmailForVerifacation,
 } from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
@@ -20,7 +19,6 @@ const router = Router();
 
 router.route("/register").post(registerUser);
 router.route("/login").post(loginUser);
-router.route("/email-send").get(verifyJWT, SendEmailForVerifacation);
 
 //SECURED ROUTES
 router.route("/email-verifide/:token").post(isEmailVerified);
